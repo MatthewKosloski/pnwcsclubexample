@@ -17,7 +17,7 @@ To develop in an Ubuntu virtual machine, you must install two things:
 
 ### Creating the Virtual Machine
 
-Open a command line, navigate to the root directy, and run this:
+Open a command-line, navigate to the root directory, and run this:
 
 ```
 $ vagrant up
