@@ -11,9 +11,9 @@ virtual machine created by [Vagrant](https://www.vagrantup.com/).
 
 To develop in an Ubuntu virtual machine, you must install two things:
 
-1. [Vagrant](https://www.vagrantup.com/downloads.html) for Windows.  Vagrant is software that provides a command-line interface that allows you to quickly spin up a VM.  Essentially, you create a folder, write a VM configuration in a `Vagrantfile` inside that folder, and run `vagrant up` to boot up the VM.
+1. _[Vagrant](https://www.vagrantup.com/downloads.html) for Windows._  Vagrant is software that provides a command-line interface that allows you to quickly spin up a VM.  Essentially, you create a folder, write a VM configuration in a `Vagrantfile` inside that folder, and run `vagrant up` to boot up the VM.
 
-2. A virtual machine [provider](https://www.vagrantup.com/intro/getting-started/providers.html).  I recommend using [Virtual](https://www.virtualbox.org/).  The provider must be installed before Vagrant.
+2. _A virtual machine [provider](https://www.vagrantup.com/intro/getting-started/providers.html)._  I recommend using [Virtualbox](https://www.virtualbox.org/).  The provider must be installed before Vagrant.
 
 ### Creating the Virtual Machine
 
