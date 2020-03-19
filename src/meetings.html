@@ -1,0 +1,14 @@
+---
+title: Meetings
+subtitle: A log of all the club meetings
+---
+<ul>
+    {% for post in site.posts %}
+        <a href="{{post.url}}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+            {{post.title}}
+            <span class="badge badge-primary badge-pill">
+                {{ post.date | date: "%-d %B %Y" }}
+            </span>
+          </a> 
+    {% endfor %}
+</ul>

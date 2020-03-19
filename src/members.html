@@ -1,0 +1,46 @@
+---
+title: Club Members
+---
+
+{% assign officers = site.members | where: "type", "officer" %}
+{% assign members = site.members | where: "type", "member" %}
+{% assign sponsors = site.members | where: "type", "sponsor" %}
+
+{% if officers[0] %}
+  <ul class="list-group">
+    <li class="list-group-item d-flex justify-content-between align-items-center bg-secondary text-white">
+      <h2>Officers</h2>
+    </li>
+    {% for officer in officers %}
+    <a href="{{officer.url}}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+      {{officer.name}}
+    </a>  
+    {% endfor %}
+  </ul>
+{% endif %}
+
+{% if members[0] %}
+<ul class="list-group">
+  <li class="list-group-item d-flex justify-content-between align-items-center bg-secondary text-white">
+    <h2>Members</h2>
+  </li>
+  {% for member in members %}
+  <a href="{{member.url}}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+    {{member.name}}
+  </a>  
+  {% endfor %}
+</ul>
+{% endif %}
+
+{% if sponsors[0] %}
+<ul class="list-group">
+  <li class="list-group-item d-flex justify-content-between align-items-center bg-secondary text-white">
+    <h2>Sponsors</h2>
+  </li>
+  {% for sponsor in sponsors %}
+  <a href="{{sponsor.url}}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+    {{sponsor.name}}
+  </a>  
+  {% endfor %}
+</ul>
+{% endif %}

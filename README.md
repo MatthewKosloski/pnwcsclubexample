@@ -2,7 +2,7 @@
 
 A simple starter website for Purdue Northwest's Computer Science club.  
 
-## Developing in Ubuntu (Recommended)
+## Developing and Building in Ubuntu (Recommended)
 
 Installing Jekyll on Windows is rather tedious due to all of its dependencies.  We can get around this by developing inside of an Ubuntu
 virtual machine created by [Vagrant](https://www.vagrantup.com/).
@@ -29,20 +29,107 @@ When you are done developing and would like to power down the virtual machine, y
 
 ### Development
 
-1. Start up the virtual machine.
+1. Boot up the VM if it's not already running:
 
 ```
 $ vagrant up
 ```
 
-1. SSH into the virtual machine and change the directory to the project root (the location of `Vagrantfile`):
+2. SSH into the virtual machine.
 
 ```
-$ vagrant ssh && cd ./vagrant
+$ vagrant ssh
 ```
 
-2. Start the development server and navigate to `192.168.50.4:4000` in your browser:
+3. Change the directory to the project root (the location of `Vagrantfile`):
 
 ```
-$ bundle exec jekyll serve --force_polling --host 192.168.50.4
+vagrant@ubuntu-bionic: cd /vagrant
 ```
+
+4. Start the development server and navigate to `192.168.50.4:4000` in your browser:
+
+```
+vagrant@ubuntu-bionic:/vagrant$ JEKYLL_ENV=development bundle exec jekyll serve --force_polling --host 192.168.50.4
+```
+
+### Creating a Build
+
+1. Boot up the VM if it's not already running:
+
+```
+$ vagrant up
+```
+
+2. SSH into the virtual machine.
+
+```
+$ vagrant ssh
+```
+
+3. Change the directory to the project root (the location of `Vagrantfile`):
+
+```
+vagrant@ubuntu-bionic: cd /vagrant
+```
+
+4. Create a build to be deployed to a web server:
+
+```
+vagrant@ubuntu-bionic:/vagrant$ JEKYLL_ENV=production bundle exec jekyll build
+```
+
+This will create a `_site` folder in the project directory.  The contents of this folder are to be uploaded to a production web server.
+
+### Deploying
+
+If you need more help with deploying, read [this](https://surge.sh/help/deploying-a-jekyll-project) help article.
+
+After creating a build (generating a `_site` folder in the project directory), we can deploy to [pnw.surge.sh](https://pnw.surge.sh/).
+
+1. Boot up the VM if it's not already running:
+
+```
+$ vagrant up
+```
+
+2. SSH into the virtual machine.
+
+```
+$ vagrant ssh
+```
+
+3. Change the directory to the project root (the location of `Vagrantfile`):
+
+```
+vagrant@ubuntu-bionic: cd /vagrant
+```
+
+4. Deploy to [pnw.surge.sh](https://pnw.surge.sh/).
+
+```
+vagrant@ubuntu-bionic:/vagrant$ surge _site 
+```
+
+It will ask you to login using email `pnwsurgesh@mtk.me`.  Replace the randomly generated domain with `pnw.surge.sh`.
+
+## Resources
+
+### Virtualbox
+- [Downloads](https://www.virtualbox.org/wiki/Downloads)
+
+### Vagrant
+- [Docs](https://www.vagrantup.com/docs/index.html)
+- [Step-by-step Tutorial](https://www.vagrantup.com/intro/getting-started/index.html)
+- [Teardown Methods](https://www.vagrantup.com/intro/getting-started/teardown.html)
+
+### Jekyll
+- [Docs](https://jekyllrb.com/docs/)
+- [Step-by-step Tutorial](https://jekyllrb.com/docs/step-by-step/01-setup/)
+
+### Surge
+- [Getting Started with Surge](https://surge.sh/help/getting-started-with-surge)
+- [Deploying a Jekyll Project to Surge](https://surge.sh/help/deploying-a-jekyll-project)
+
+### Bootstrap
+- [Documentation](https://getbootstrap.com/docs/4.4/getting-started/introduction/)

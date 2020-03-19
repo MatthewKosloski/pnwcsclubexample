@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>{{ page.title }}</title>
+  {% include css.html %}
+  {% feed_meta %}
+  {% seo %}
+</head>
+<body>
+  {% if page.has_alert %}
+    {% include alert.html %}
+  {% endif %}
+  {% include navigation.html %}
+  <main style="min-height:100vh;">
+    {{content}}
+  </main>
+  {% include footer.html %}

@@ -1,0 +1,52 @@
+---
+layout: page
+---
+
+<div class="row">
+    {% if page.image %}
+        <div class="col-md-6">
+            <img
+            src="../assets/images/members/{{page.image}}" 
+            alt="Photo of CS club {{page.type}} {{page.name}}"
+            class="img-fluid mb-3 mb-md-0">
+        </div>
+    {% endif %}
+  <div class="col-md-{% if page.image %}6{% else %}12{% endif %}">
+    <ul class="list-group list-group-flush">
+        {% for bio in page.bio %}
+        <li class="list-group-item">
+            <span class="font-weight-bold pr-3">{{bio[0] | capitalize}}</span>
+            {{bio[1]}}
+        </li>
+        {% endfor %}
+        {% if page.email or page.github or page.linkedin %}
+            <li class="list-group-item">
+                <span class="font-weight-bold pr-3">Contact</span>
+                <ul class="list-unstyled d-inline-block align-middle">
+                    {% if page.email %}
+                        <li class="h2 d-inline-block mr-2">
+                            <a href="mailto:{{page.email}}" class="text-muted" title="Email {{page.name}}">
+                                <i class="fa fa-envelope"></i>
+                            </a>
+                        </li>
+                    {% endif %}
+                    {% if page.github %}
+                        <li class="h2 d-inline-block mr-2">
+                            <a href="{{page.github}}" class="text-muted" title="{{page.name}}'s Github account">
+                                <i class="fa fa-github"></i>
+                            </a>
+                        </li>
+                    {% endif %}
+                    {% if page.linkedin %}
+                        <li class="h2 d-inline-block mr-2">
+                            <a href="{{page.linkedin}}" class="text-muted" title="{{page.name}}'s LinkedIn account">
+                                <i class="fa fa-linkedin"></i>
+                            </a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </li>
+        {% endif %}
+    </ul>
+  </div>
+</div>

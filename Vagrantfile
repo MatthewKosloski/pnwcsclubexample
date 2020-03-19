@@ -3,7 +3,8 @@ Vagrant.configure("2") do |config|
     # Ubuntu 18.04 LTS
     config.vm.box = "ubuntu/bionic64"
 
-    config.vm.provision :shell, path: "bootstrap.sh"
+    config.vm.provision :shell, path: "bootstrap-privileged.sh"
+    config.vm.provision :shell, path: "bootstrap-unprivileged.sh", privileged: false
 
     # Allows access to port 4000 on the guest using port 4000 on 
     # the host.

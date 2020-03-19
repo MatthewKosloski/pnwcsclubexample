@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="/">PNW CS Club</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                {% for item in site.data.navigation %}
+                    <li 
+                        {% if page.url == item.link %}
+                            class="nav-item active"
+                        {% else %} 
+                            class="nav-item"
+                        {% endif %}>
+                        <a class="nav-link" href="{{ item.link }}">
+                            {{ item.name }}
+                            {% if page.url == item.link %}
+                                <span class="sr-only">(current)</span>
+                            {% endif %}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>    
+</nav>
