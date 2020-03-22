@@ -1,6 +1,6 @@
 # pnwcsclubexample
 
-A simple starter website for Purdue Northwest's Computer Science club.  
+A simple starter website for **Purdue University Northwest's** Computer Science club.  
 
 ## Developing and Building in Ubuntu (Recommended)
 
